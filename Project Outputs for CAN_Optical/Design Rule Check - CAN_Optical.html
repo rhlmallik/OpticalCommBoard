@@ -1,0 +1,400 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD20\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">5/22/2020</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">10:54:49 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:02</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc" class="file"><acronym title="G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc">G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">2</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">18</td></tr>
+</table>
+</td>
+</table><a name="IDWGX0QAEVXFVMNFWQSVNK2B2JJSUAEQ3UYUQJEBK55Q5T0Z00FED"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDICHJEHF5145YBA53FZ3M3C1EHMVEWYXOWWQTIPBPZUJIYEOQN5">Unplated multi-layer pad(s) detected</a></td>
+<td class="column2">2</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">2</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDWWCVDGARB2MLHWOU1VROKRLU5QGK3TAF0HNX1PUOFEJDAQ3JTXF">Clearance Constraint (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDLLQ1OT5KMKN4L2A4NC0I0DQDBJMZ3LVS3IMHELFH4ZTXJI25FQHI">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJP5GNXRJMGBLHRLD1HKZ1UGD0HG0TIUDQX0CSEPCD30IMMO0ZBQG">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">6</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA1OIBWTSVMBXMTH2BXLXULQKEHH1KBXJIIJVYPPCGHW0P0JQV2ZD">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDICV2AG33CQJGONE0OE3MAORU1O31R3V15IJCK3JHRCFQ1YJAI35M">Width Constraint (Min=0.5mm) (Max=2mm) (Preferred=1mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDHSQWFDNSS3WFGZH04SQGAWAZPN4SDWPMOEOABVBR0FRQZ0I4OBKF">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDQZUAWCMT1T5KG3GXNOZZIGUM0MJI15EC3Q41LFFWJOXNHTPXEKTK">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">12</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDPHXWI3GECNV1ICRLB2IN3WFQ2HDNIQPAMIDDYZIT21ZPASEIFLDO">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDNKYB0YHOITVLHRSXWJH4ZN3ICMKYQYHDU4F23FLPGDX2BAUDI24G">Minimum Solder Mask Sliver (Gap=0.025mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDG5XOPRMIE14LOERHN155GPKNSCFWEEYJAVIEJWBWRXO0SSIKFMNK">Silk To Solder Mask (Clearance=0.051mm) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDRV5SMNWCMMPLDVX2SIMOPEBATH3STRPO1VI04OIL4GQY45WQJN4E">Silk to Silk (Clearance=0.025mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDE5LQXHNULCJBOQ1ULKN4XMDCVN3HEORH1GNJJ1PVDZOWR1W2Y0HF">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDQTHF0ZQR3A1GNU3ZS0TCQ4QWRI1HFRWTWT5A3EEPXF42UXMHN53F">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (Disabled)(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">18</td>
+</tr>
+</table><br><a name="IDN3B3LIVFH4BCBCXGDHFCZ5JDRBMW4AEN4D0F0ZMQUSWH011LQPHJ"><h2>Warnings</h2></a><a name="IDICHJEHF5145YBA53FZ3M3C1EHMVEWYXOWWQTIPBPZUJIYEOQN5"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="warning">Unplated multi-layer pad(s) detected</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5749.465mil|Location2.X=5817.465mil|Location1.Y=1426.63mil|Location2.Y=1494.63mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5749.465mil|Location2.X=5817.465mil|Location1.Y=1426.63mil|Location2.Y=1494.63mil|Absolute=True">Pad USB1-1(146.9mm,37.1mm) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=0mil|Location1.Y=0mil|Location2.Y=0mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=0mil|Location1.Y=0mil|Location2.Y=0mil|Absolute=True">Net NetC15_1</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5753.402mil|Location2.X=5821.402mil|Location1.Y=1253.401mil|Location2.Y=1321.401mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5753.402mil|Location2.X=5821.402mil|Location1.Y=1253.401mil|Location2.Y=1321.401mil|Absolute=True">Pad USB1-1(147mm,32.7mm) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=0mil|Location1.Y=0mil|Location2.Y=0mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=0mil|Location1.Y=0mil|Location2.Y=0mil|Absolute=True">Net NetC15_1</acronym></a></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDJP5GNXRJMGBLHRLD1HKZ1UGD0HG0TIUDQX0CSEPCD30IMMO0ZBQG"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5683.465mil|Location2.X=5883.465mil|Location1.Y=1360.63mil|Location2.Y=1560.63mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5683.465mil|Location2.X=5883.465mil|Location1.Y=1360.63mil|Location2.Y=1560.63mil|Absolute=True">Un-Routed Net Constraint:  </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5687.402mil|Location2.X=5887.402mil|Location1.Y=1187.401mil|Location2.Y=1387.401mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5687.402mil|Location2.X=5887.402mil|Location1.Y=1187.401mil|Location2.Y=1387.401mil|Absolute=True">Un-Routed Net Constraint:  </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5683.465mil|Location2.X=5887.402mil|Location1.Y=1360.63mil|Location2.Y=1387.401mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5683.465mil|Location2.X=5887.402mil|Location1.Y=1360.63mil|Location2.Y=1387.401mil|Absolute=True">Un-Routed Net Constraint:  </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5683.465mil|Location2.X=5883.465mil|Location1.Y=1360.63mil|Location2.Y=1560.63mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5683.465mil|Location2.X=5883.465mil|Location1.Y=1360.63mil|Location2.Y=1560.63mil|Absolute=True">Un-Routed Net Constraint:  </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5687.402mil|Location2.X=5887.402mil|Location1.Y=1187.401mil|Location2.Y=1387.401mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5687.402mil|Location2.X=5887.402mil|Location1.Y=1187.401mil|Location2.Y=1387.401mil|Absolute=True">Un-Routed Net Constraint:  </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5685.433mil|Location2.X=5887.402mil|Location1.Y=1189.37mil|Location2.Y=1387.401mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5685.433mil|Location2.X=5887.402mil|Location1.Y=1189.37mil|Location2.Y=1387.401mil|Absolute=True">Un-Routed Net Constraint: Track (146.95mm,32.75mm)(147mm,32.7mm) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDQZUAWCMT1T5KG3GXNOZZIGUM0MJI15EC3Q41LFFWJOXNHTPXEKTK"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=96.746mil|Location2.X=264.996mil|Location1.Y=89.873mil|Location2.Y=258.123mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=96.746mil|Location2.X=264.996mil|Location1.Y=89.873mil|Location2.Y=258.123mil|Absolute=True">Hole Size Constraint: (4.242mm &gt; 2.54mm) Pad Free-M1(4.594mm,4.42mm) on Multi-Layer Actual Hole Size = 4.242mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=96.746mil|Location2.X=264.996mil|Location1.Y=4739.873mil|Location2.Y=4908.123mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=96.746mil|Location2.X=264.996mil|Location1.Y=4739.873mil|Location2.Y=4908.123mil|Absolute=True">Hole Size Constraint: (4.242mm &gt; 2.54mm) Pad Free-M2(4.594mm,122.53mm) on Multi-Layer Actual Hole Size = 4.242mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5746.746mil|Location2.X=5914.996mil|Location1.Y=4739.873mil|Location2.Y=4908.123mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5746.746mil|Location2.X=5914.996mil|Location1.Y=4739.873mil|Location2.Y=4908.123mil|Absolute=True">Hole Size Constraint: (4.242mm &gt; 2.54mm) Pad Free-M3(148.104mm,122.53mm) on Multi-Layer Actual Hole Size = 4.242mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5721.746mil|Location2.X=5889.996mil|Location1.Y=89.873mil|Location2.Y=258.123mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5721.746mil|Location2.X=5889.996mil|Location1.Y=89.873mil|Location2.Y=258.123mil|Absolute=True">Hole Size Constraint: (4.242mm &gt; 2.54mm) Pad Free-M4(147.469mm,4.42mm) on Multi-Layer Actual Hole Size = 4.242mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5815.399mil|Location2.X=5944.601mil|Location1.Y=4120.084mil|Location2.Y=4249.287mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5815.399mil|Location2.X=5944.601mil|Location1.Y=4120.084mil|Location2.Y=4249.287mil|Absolute=True">Hole Size Constraint: (3.25mm &gt; 2.54mm) Pad U2-10(149.352mm,106.291mm) on Multi-Layer Actual Hole Size = 3.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5815.399mil|Location2.X=5944.601mil|Location1.Y=3620.084mil|Location2.Y=3749.287mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5815.399mil|Location2.X=5944.601mil|Location1.Y=3620.084mil|Location2.Y=3749.287mil|Absolute=True">Hole Size Constraint: (3.25mm &gt; 2.54mm) Pad U2-10(149.352mm,93.591mm) on Multi-Layer Actual Hole Size = 3.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4256.029mil|Location2.X=4385.231mil|Location1.Y=4750.399mil|Location2.Y=4879.601mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4256.029mil|Location2.X=4385.231mil|Location1.Y=4750.399mil|Location2.Y=4879.601mil|Absolute=True">Hole Size Constraint: (3.25mm &gt; 2.54mm) Pad U4-10(109.744mm,122.301mm) on Multi-Layer Actual Hole Size = 3.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3756.028mil|Location2.X=3885.231mil|Location1.Y=4750.399mil|Location2.Y=4879.601mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3756.028mil|Location2.X=3885.231mil|Location1.Y=4750.399mil|Location2.Y=4879.601mil|Absolute=True">Hole Size Constraint: (3.25mm &gt; 2.54mm) Pad U4-10(97.044mm,122.301mm) on Multi-Layer Actual Hole Size = 3.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4706.029mil|Location2.X=4835.231mil|Location1.Y=4815.399mil|Location2.Y=4944.601mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4706.029mil|Location2.X=4835.231mil|Location1.Y=4815.399mil|Location2.Y=4944.601mil|Absolute=True">Hole Size Constraint: (3.25mm &gt; 2.54mm) Pad U5-10(121.174mm,123.952mm) on Multi-Layer Actual Hole Size = 3.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5206.029mil|Location2.X=5335.231mil|Location1.Y=4815.399mil|Location2.Y=4944.601mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5206.029mil|Location2.X=5335.231mil|Location1.Y=4815.399mil|Location2.Y=4944.601mil|Absolute=True">Hole Size Constraint: (3.25mm &gt; 2.54mm) Pad U5-10(133.874mm,123.952mm) on Multi-Layer Actual Hole Size = 3.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2875.241mil|Location2.X=3004.444mil|Location1.Y=4750.477mil|Location2.Y=4879.68mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2875.241mil|Location2.X=3004.444mil|Location1.Y=4750.477mil|Location2.Y=4879.68mil|Absolute=True">Hole Size Constraint: (3.25mm &gt; 2.54mm) Pad U6-10(74.672mm,122.303mm) on Multi-Layer Actual Hole Size = 3.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3375.241mil|Location2.X=3504.444mil|Location1.Y=4750.477mil|Location2.Y=4879.68mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3375.241mil|Location2.X=3504.444mil|Location1.Y=4750.477mil|Location2.Y=4879.68mil|Absolute=True">Hole Size Constraint: (3.25mm &gt; 2.54mm) Pad U6-10(87.372mm,122.303mm) on Multi-Layer Actual Hole Size = 3.25mm</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
