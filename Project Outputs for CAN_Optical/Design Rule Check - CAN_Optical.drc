@@ -1,0 +1,70 @@
+Protel Design System Design Rule Check
+PCB File : G:\My Drive\GitHub\EBike\RahMatsEBikeFolder\CAN_Optical.PcbDoc
+Date     : 5/22/2020
+Time     : 10:54:49 PM
+
+WARNING: Unplated multi-layer pad(s) detected
+   Pad USB1-1(146.9mm,37.1mm) on Multi-Layer on Net NetC15_1
+   Pad USB1-1(147mm,32.7mm) on Multi-Layer on Net NetC15_1
+
+Processing Rule : Clearance Constraint (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+   Violation between Un-Routed Net Constraint:  
+   Violation between Un-Routed Net Constraint:  
+   Violation between Un-Routed Net Constraint:  
+   Violation between Un-Routed Net Constraint:  
+   Violation between Un-Routed Net Constraint:  
+   Violation between Un-Routed Net Constraint: Track (146.95mm,32.75mm)(147mm,32.7mm) on Top Layer 
+Rule Violations :6
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.5mm) (Max=2mm) (Preferred=1mm) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)
+   Violation between Hole Size Constraint: (4.242mm > 2.54mm) Pad Free-M1(4.594mm,4.42mm) on Multi-Layer Actual Hole Size = 4.242mm
+   Violation between Hole Size Constraint: (4.242mm > 2.54mm) Pad Free-M2(4.594mm,122.53mm) on Multi-Layer Actual Hole Size = 4.242mm
+   Violation between Hole Size Constraint: (4.242mm > 2.54mm) Pad Free-M3(148.104mm,122.53mm) on Multi-Layer Actual Hole Size = 4.242mm
+   Violation between Hole Size Constraint: (4.242mm > 2.54mm) Pad Free-M4(147.469mm,4.42mm) on Multi-Layer Actual Hole Size = 4.242mm
+   Violation between Hole Size Constraint: (3.25mm > 2.54mm) Pad U2-10(149.352mm,106.291mm) on Multi-Layer Actual Hole Size = 3.25mm
+   Violation between Hole Size Constraint: (3.25mm > 2.54mm) Pad U2-10(149.352mm,93.591mm) on Multi-Layer Actual Hole Size = 3.25mm
+   Violation between Hole Size Constraint: (3.25mm > 2.54mm) Pad U4-10(109.744mm,122.301mm) on Multi-Layer Actual Hole Size = 3.25mm
+   Violation between Hole Size Constraint: (3.25mm > 2.54mm) Pad U4-10(97.044mm,122.301mm) on Multi-Layer Actual Hole Size = 3.25mm
+   Violation between Hole Size Constraint: (3.25mm > 2.54mm) Pad U5-10(121.174mm,123.952mm) on Multi-Layer Actual Hole Size = 3.25mm
+   Violation between Hole Size Constraint: (3.25mm > 2.54mm) Pad U5-10(133.874mm,123.952mm) on Multi-Layer Actual Hole Size = 3.25mm
+   Violation between Hole Size Constraint: (3.25mm > 2.54mm) Pad U6-10(74.672mm,122.303mm) on Multi-Layer Actual Hole Size = 3.25mm
+   Violation between Hole Size Constraint: (3.25mm > 2.54mm) Pad U6-10(87.372mm,122.303mm) on Multi-Layer Actual Hole Size = 3.25mm
+Rule Violations :12
+
+Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0.025mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=0.051mm) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=0.025mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (Disabled)(All)
+Rule Violations :0
+
+
+Violations Detected : 18
+Waived Violations : 0
+Time Elapsed        : 00:00:02

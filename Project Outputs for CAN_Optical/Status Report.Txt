@@ -1,0 +1,13 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [CAN_Optical.PrjPcb]
+   Generated File[CAN_Optical.TXT]
+   Generated File[CAN_Optical.DRL]
+   Generated File[CAN_Optical.LDP]
+   Generated File[CAN_Optical.DRR]
+
+
+Files Generated   : 4
+Documents Printed : 0
+
+Finished Output Generation At 10:56:14 PM On 5/22/2020
